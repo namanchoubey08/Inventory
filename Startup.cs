@@ -35,10 +35,15 @@ namespace Inventory
             services.AddDbContext<InventoryContext>(x => x.UseSqlServer(Configuration.GetConnectionString("ConStr")));
             services.AddScoped<IInventoryService, InventoryService>();
 
-            services.AddSwaggerGen(c =>
+            services.AddCors(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Inventory", Version = "v1" });
+                options.AddDefaultPolicy(builder => builder.WithOrigins(""));
             });
+
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Inventory", Version = "v1" });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +59,8 @@ namespace Inventory
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

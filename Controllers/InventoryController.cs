@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace Inventory.Controllers
 {
+    [Route("api/Inventory/")]
+    [ApiController]
     public class InventoryController : ControllerBase
     {
         IInventoryService _Service;
