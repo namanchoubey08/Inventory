@@ -1,5 +1,5 @@
 # Inventory
 
-I have used Swagger which comes with ASP.NET Core.
+I have used Swagger which comes with ASP.NET Core API.
 
-Upadate corls url, if you want to access with some other url.
+Update corls url, if you want to access with some other url.
